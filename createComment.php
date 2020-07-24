@@ -23,7 +23,7 @@
             $array[] = array(
                 "id" => $comment1['id'],
                 "title" => $comment1['title'],
-                "comment-time" => $comment1['comment-time'],
+                "comment-time" => $comment1['Create_date'],
                 "email" => $email1,
             );
        

@@ -2,14 +2,17 @@
     require('connectMySQL.php');
     session_start();
     // error_reporting(0);
-    $return_arr[] = array();
+    // $return_arr[] = array();
     $userId = $_SESSION['id'] ;
     $email1 = $_SESSION['email'];  
+    // echo $email1;
+    // echo $userId;
+    // echo $userId + $email1;
     $sql = "SELECT * from tb_list inner join tb_user_list on tb_user_list.userId=$userId and tb_user_list.listId = tb_list.id
     ";
     $stmt = $db->prepare($sql);
     $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    // $data = $stmt->fetch(PDO::FETCH_ASSOC);
     // print_r($sql);
     // if(isset($_POST["save"]))
     // {
@@ -17,11 +20,12 @@
         // $listName = $_POST['listName'];
         // if(isset($_POST["save"])){
         $listName = $_POST['list'];
-        $sql = "INSERT INTO tb_list(name) values('$listName')";
-        $stmt = $db->prepare($sql);
+        $sql1 = "INSERT INTO tb_list(name, userId) VALUES ('$listName', '$userId')";
+        $stmt = $db->prepare($sql1);
         $stmt->execute();
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $id = $db->lastInsertId();
+        // echo $listName;
         echo $id;
         //Lấy giá trị cuối cùng mình vừa thêm vào bảng list.
     //   if(isset($_POST["save"])){
@@ -31,9 +35,21 @@
         // $data = $stmt->fetch(PDO::FETCH_ASSOC);
         // $data1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // $id = $data['id'];
-
-
-
+    //     $sql_2 = "SELECT * from tb_list";
+    //     $stmt_2 = $db->prepare($stmt_2);
+    //     $stmt_2->execute();
+    //     $data_2 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     foreach($data_2 as $list){
+    //         $return_arr[] = array(
+    //             "id" => $list['id'],
+    //             "name" => $list['name'],
+            
+    //     );
+    // }
+    // echo json_encode($return_arr);
+        // // print_r($return_arr);
+        // echo json_encode($return_arr);
+        //  echo json_encode($return_arr);
         // $name = $data['name'];
         // $return_arr[] = array(
         //     "id" => $id,

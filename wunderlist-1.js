@@ -103,7 +103,7 @@ class MainEvent{
             $(".dialog.listOptions.boxCreateList").addClass("hidden");
             //click vào cancel để thoát khỏi listOptions
         })
-        $(".right-foot2").click(function(){
+        $("body").on("click",".right-foot21",function(){
             $(".main-right").hide();
             //click vào < bên main-right. để none thanh main-right
         })
@@ -192,6 +192,7 @@ class MainEvent{
                 // $(this).removeClass("background");
                 $(".mid2").removeClass("background");
                 $(this).addClass("background");
+                $(this).children().children();
                 var content = $(this).find(".mid2-2").html();
                 $(".display-view").html(content);
                 // $(".starred-wrapper").addClass("hidden");
@@ -425,8 +426,8 @@ class MainEvent{
             //     $(".body1").children().children().children(".star-wrapper").on("click");
             //     $(".body1").children().children().children(".starred-wrapper").on("click");
             // })
-            $(document).on("click",".done .mid2 .mid2-3 .star-wrapper",function(e){
-
+            $("body").on("click",".star-wrapper",function(e){
+                // alert("ro");
                 e.stopPropagation();
                 $(this).addClass("hidden");
                 // $(this).removeClass("hidden");
@@ -435,7 +436,7 @@ class MainEvent{
                 $(".right-header3").find(".starred-wrapper").removeClass("hidden");
                 
             })
-            $(document).on("click",".done .mid2 .mid2-3 .star-wrappered",function(e){
+            $("body").on("click",".starred-wrapper",function(e){
                 e.stopPropagation();
                 $(this).addClass("hidden");
                 // $(this).removeClass("hidden");
@@ -489,11 +490,10 @@ class MainEvent{
             var list = $(".createList");
             // $(".list").css("display","none");
             var curren_list;
-            // $(".chap3").on("click",function(){
-            //    var w = $(this).children().children().eq(2).val();
-            // // var w = $(".idList").val();
-            //     alert(w);
-            // })
+            $("body").on("click",".chap3",function(){
+                $(".chap3").removeClass("background");
+                $(this).addClass("background");
+            })
             $("body").on("contextmenu",".chap3",function(event){
                 list.css("display","block");
                 // isLeft.first().css("display","none");
@@ -506,6 +506,7 @@ class MainEvent{
                 list.css({
                     left : event.clientX + 'px',
                     top : event.clientY + 'px',
+                    // bottom : event.screenX ,
                 })
                 event.preventDefault();
             })
@@ -765,7 +766,6 @@ class MainEvent{
         $("body").on("keypress","input[name='createComment']",function(event){
             var item1 = $(".right-foot1-12 input").val();
             if( event.keyCode == 13 && item1 != 0){
-                
                 var itm = $(".section-item:first");
                 var cln = itm.clone(true);
                 cln.find(".comment-text").html(item1);

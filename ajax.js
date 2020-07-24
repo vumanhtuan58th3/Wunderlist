@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //var submitList = $("button[name='save']");
     //Tạo List
-    $("button[name='save']").on("click",function(){
+    $("body").on("click","button[name='save']",function(){
         // alert("dddd");
         //Khai báo biến dữ liệu gửi lên server
        
@@ -23,9 +23,11 @@ $(document).ready(function(){
                 'list' : list,
             },
             
-            datatype: 'json',
+
             success : function(data){
-               
+            //    console.log(data);
+            //    var list_create = JSON.parse(data);
+            //    console.log(list_create);
             //    let contacts = JSON.parse(data1);
                 // $(".big-chap3").append(data1);
                 // var list = $("input[name='listName']").val('');
@@ -45,8 +47,9 @@ $(document).ready(function(){
                 // var name = contacts.name[0];
                 // console.log(id);
                 // console.log(name);
-                
-                var tr_str = 
+                // $(".big-chap3").append(
+                    // list_create.forEach(element=> {
+                        var tr_str = 
                         '<ul class="chap3" >'+
                             '<li class="one-chap3" name="test" >'+
                                 
@@ -67,8 +70,14 @@ $(document).ready(function(){
                     // console.log(id);
                     $(".big-chap3").append(tr_str);
 
-            //    }
+            //    })
+                // );
             }
+            
+            
+
+            // console.error("sdsad");
+            
 
         });
         // return false;
@@ -233,7 +242,7 @@ $(document).ready(function(){
                 '</div>'+
                 ' <span class="mid2-3">'+
                     '<svg class="star-wrapper" id="change" width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"> <g> <path d="M3.74,18 C3.64,18 3.54,17.96 3.46,17.9 C3.28,17.76 3.2,17.54 3.28,17.34 L5.16,11.5 L0.2,7.9 C0.04,7.78 -0.04,7.56 0.02,7.34 C0.1,7.14 0.28,7 0.5,7 L6.64,7 L8.52,1.16 C8.66,0.76 9.34,0.76 9.48,1.16 L11.38,7 L17.5,7 C17.72,7 17.9,7.14 17.98,7.34 C18.04,7.56 17.96,7.78 17.8,7.9 L12.84,11.5 L14.72,17.34 C14.8,17.54 14.72,17.76 14.54,17.9 C14.38,18.02 14.14,18.02 13.96,17.9 L9,14.3 L4.04,17.9 C3.96,17.96 3.84,18 3.74,18 L3.74,18 Z M9,13.18 C9.1,13.18 9.2,13.2 9.3,13.28 L13.3,16.18 L11.78,11.46 C11.7,11.26 11.78,11.04 11.96,10.92 L15.96,8 L11,8 C10.8,8 10.6,7.86 10.54,7.66 L9,2.94 L7.46,7.66 C7.4,7.86 7.22,8 7,8 L2.04,8 L6.04,10.92 C6.22,11.04 6.3,11.26 6.22,11.46 L4.7,16.18 L8.7,13.28 C8.8,13.2 8.9,13.18 9,13.18 L9,13.18 Z"></path> </g> </svg>'+                     
-                    '<svg class="starred-wrapper" id="change1" width="22px" height="44px" viewBox="0 0 22 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"> <g> <path d="M0,0l0,40.5c0,0.28 0.22,0.42 0.48,0.32l10.04,-3.64c0.28,-0.1 0.7,-0.1 0.96,0l10.04,3.64c0.28,0.1 0.48,-0.04 0.48,-0.32l0,-40.5l-22,0ZM14.46,24.08l1.68,5.26c0.08,0.18 0,0.38 -0.16,0.5c-0.14,0.1 -0.36,0.1 -0.52,0l-4.46,-3.24l-4.46,3.24c-0.08,0.06 -0.18,0.1 -0.28,0.1c-0.08,0 -0.18,-0.04 -0.24,-0.1c-0.16,-0.12 -0.24,-0.32 -0.16,-0.5l1.68,-5.26l-4.46,-3.24c-0.14,-0.12 -0.22,-0.32 -0.16,-0.52c0.08,-0.18 0.24,-0.32 0.44,-0.32l5.52,0l1.68,-5.24c0.14,-0.36 0.74,-0.36 0.88,0l1.7,5.24l5.5,0c0.2,0 0.36,0.14 0.44,0.32c0.06,0.2 -0.02,0.4 -0.16,0.52l-4.46,3.24Z"></path> </g> </svg>'+
+                    '<svg class="starred-wrapper hidden" id="change1" width="22px" height="44px" viewBox="0 0 22 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"> <g> <path d="M0,0l0,40.5c0,0.28 0.22,0.42 0.48,0.32l10.04,-3.64c0.28,-0.1 0.7,-0.1 0.96,0l10.04,3.64c0.28,0.1 0.48,-0.04 0.48,-0.32l0,-40.5l-22,0ZM14.46,24.08l1.68,5.26c0.08,0.18 0,0.38 -0.16,0.5c-0.14,0.1 -0.36,0.1 -0.52,0l-4.46,-3.24l-4.46,3.24c-0.08,0.06 -0.18,0.1 -0.28,0.1c-0.08,0 -0.18,-0.04 -0.24,-0.1c-0.16,-0.12 -0.24,-0.32 -0.16,-0.5l1.68,-5.26l-4.46,-3.24c-0.14,-0.12 -0.22,-0.32 -0.16,-0.52c0.08,-0.18 0.24,-0.32 0.44,-0.32l5.52,0l1.68,-5.24c0.14,-0.36 0.74,-0.36 0.88,0l1.7,5.24l5.5,0c0.2,0 0.36,0.14 0.44,0.32c0.06,0.2 -0.02,0.4 -0.16,0.52l-4.46,3.24Z"></path> </g> </svg>'+
                 ' </span>'+
             '</div>';
                 $(".body1").append(tr_str);
@@ -406,6 +415,7 @@ $(document).ready(function(){
         var nameSubTask = $(this).val();
         // alert(nameSubTask);
         if(e.keyCode == 13 && $(this).val()!=" "){
+            // console.log(nameSubTask);
         $.ajax({
             type : 'POST',
             url : 'createSubTask.php',
@@ -428,7 +438,7 @@ $(document).ready(function(){
                         '<div class="section-delete deleteSubtask">'+
                             '<svg class="delete" width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g stroke="none" stroke-width="1" fill-rule="evenodd"> <g id="delete"> <path d="M10.72,9.9975 L13.86,6.8575 C14.04,6.6575 14.04,6.3375 13.86,6.1375 C13.66,5.9575 13.34,5.9575 13.14,6.1375 L10,9.2775 L6.86,6.1375 C6.66,5.9575 6.34,5.9575 6.14,6.1375 C5.96,6.3375 5.96,6.6575 6.14,6.8575 L9.28,9.9975 L6.14,13.1375 C5.96,13.3375 5.96,13.6575 6.14,13.8575 C6.24,13.9575 6.38,13.9975 6.5,13.9975 C6.62,13.9975 6.76,13.9575 6.86,13.8575 L10,10.7175 L13.14,13.8575 C13.24,13.9575 13.38,13.9975 13.5,13.9975 C13.62,13.9975 13.76,13.9575 13.86,13.8575 C14.04,13.6575 14.04,13.3375 13.86,13.1375 L10.72,9.9975 Z" id="4"></path> </g> </g> </svg>'+
                         '</div>'+
-                        '<span class="idSubTask">'+ data +'</span>'+
+                        '<span class="idSubTask" style="display="none">'+ data +'</span>'+
                    ' </li>';
                 $(".subTask").append(tr_str);
             }
@@ -483,11 +493,23 @@ $(document).ready(function(){
             })
         }
     })
+    // $("body").on("click","input[name='SubmitFile']",function(event){
+    //     var taskId = $(".editTaskId").html();
+    //     alert(taskId);
+    //     $.ajax({
+    //         type : 'POST',
+    //         url : 'handleFile.php',
+    //         data : {
+    //             'taskId' : taskId,
+    //         }
+    //     })
+    // })
     // Tạo comment
     $("body").on("keypress","input[name='createComment']",function(event){
         // alert("sdsd");
        
         if(event.keyCode == 13){
+
             // alert("sadsad");
             var taskId = $(".editTaskId").html();
             var nameComment = $("input[name='createComment']").val();
@@ -501,7 +523,7 @@ $(document).ready(function(){
                 },
                 success : function(data){
                     var comments = JSON.parse(data);
-                    console.log(comments);
+                    // console.log(comments);
                     $(".commented").append(
                     comments.forEach(element => {
                        '<li class="section-item section-item-comment">'+
@@ -512,7 +534,7 @@ $(document).ready(function(){
                             '</div>'+
                             '<div class="section-content">'+
                                 '<span class="comment-author">' + element['email'] + '</span>'+
-                                '<span class="comment-time">' + element['comment-time'] + '</span>'+
+                                '<span class="comment-time">' + element['Create_date'] + '</span>'+
                             ' <span class="comment-text">' + element['title'] + '</span>'+
                             '</div>'+
                             '<a class="section-delete comment">'+

@@ -510,11 +510,21 @@ ul li text {
 }
 .chap3{
     height: 38px;
-    background: #e0eefa;
+    background: #fff;
     list-style: none;
     margin: 0px;
     padding: 7px;
+    margin-bottom: 1px;
 }
+.idList{
+    border: none;
+    display: none;
+}   .options.rtl-flip{
+        visibility: hidden;
+}
+    .list-options:hover .rtl-flip{
+        visibility: visible;
+    }
     .taskId{
     }
 .one-chap3{
@@ -837,8 +847,12 @@ input[type="text"]{
 .mid2-2{
     flex-grow: 1;
     margin: 8px;
+    /* background: #fff; */
     /* text-decoration: none; */
 }
+    .mid2-2 > input{
+        background: #fff;
+    }
 .mid2-3{
     cursor: pointer;
     /* height: 20px ;
